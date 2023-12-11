@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc76c7cd-6004-43c2-b9be-523b5805980c" name="Changes" comment="Added number of messages tracker 2">
-      <change afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imrpoved_main.py" afterDir="false" />
+    <list default="true" id="fc76c7cd-6004-43c2-b9be-523b5805980c" name="Changes" comment="Moved the main function to a functions.py script. Also started to work on the pandas implementation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imrpoved_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/imrpoved_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,16 +36,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.imrpoved_main.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Lobel/Documents/GitHub/TimeStampRemover"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.imrpoved_main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lobel/Documents/GitHub/TimeStampRemover&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Lobel\PycharmProjects\TimeStampRemover" />
@@ -140,7 +140,14 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1702254934511</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Moved the main function to a functions.py script. Also started to work on the pandas implementation.">
+      <option name="closed" value="true" />
+      <created>1702326057397</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1702326057397</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -149,6 +156,7 @@
     <MESSAGE value="Made everything into a function and finished the prototype of the program" />
     <MESSAGE value="Added number of messages tracker" />
     <MESSAGE value="Added number of messages tracker 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added number of messages tracker 2" />
+    <MESSAGE value="Moved the main function to a functions.py script. Also started to work on the pandas implementation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved the main function to a functions.py script. Also started to work on the pandas implementation." />
   </component>
 </project>
