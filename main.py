@@ -11,6 +11,9 @@ def modify_transcript(input_filepath, output_filepath):
     # For modifying lines in the input
     modified_lines = []
 
+    # Track number of messages
+    message_tracker = 0
+
     # For keeping track of the people in the conversation
     name_list = []
 
@@ -22,6 +25,7 @@ def modify_transcript(input_filepath, output_filepath):
         try:
             if line[2] == '/':
                 line = line[20:]
+                message_tracker += 1
         except:
             line = line
 
