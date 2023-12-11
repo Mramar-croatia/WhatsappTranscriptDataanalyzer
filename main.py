@@ -58,6 +58,7 @@ def modify_transcript(input_filepath, output_filepath):
         f.writelines(name_list)
         f.writelines(modified_lines)
         f.write(f'\n{media_tracker} media files have passed trough this conversation')
+        f.write(f'\n{message_tracker} messages sent')
 
 
 root = Tk()

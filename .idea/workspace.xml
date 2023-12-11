@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc76c7cd-6004-43c2-b9be-523b5805980c" name="Changes" comment="Made everything into a function and finished the prototype of the program">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fc76c7cd-6004-43c2-b9be-523b5805980c" name="Changes" comment="Added number of messages tracker">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,13 +116,21 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1702253487081</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Added number of messages tracker">
+      <option name="closed" value="true" />
+      <created>1702254868297</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1702254868297</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Update" />
     <MESSAGE value="Created the first version of the program" />
     <MESSAGE value="Made everything into a function and finished the prototype of the program" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made everything into a function and finished the prototype of the program" />
+    <MESSAGE value="Added number of messages tracker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added number of messages tracker" />
   </component>
 </project>
