@@ -1,2 +1,2 @@
 # TimeStampRemover
- Program used to remove timestamps from WhatsApp transcripts
+ The program is used to remove timestamps from WhatsApp transcripts. The program uses a tkinter to enable the user to open a file for input and a file for output. Also provided is the file to serve as a sample to try the program.
