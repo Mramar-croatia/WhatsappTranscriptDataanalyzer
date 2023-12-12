@@ -2,61 +2,67 @@ import numpy as np
 import pandas as pd
 
 
-def modify_transcript(input_filepath, output_filepath):
+def to_pandas(input_filepath):
     # Loads the text into a list
     with open(input_filepath, 'r', encoding="utf8") as f:
-        original_lines = f.readlines()
+        lines = f.readlines()
         f.close()
 
-    # For modifying lines in the input
-    modified_lines = []
+    if ':' not in lines[0][20:]:
+        lines.remove(lines[0])
 
-    # Track number of messages
-    message_tracker = 0
+    chat_name = input_filepath[input_filepath.rfind('WhatsApp Chat'):]
 
-    # For keeping track of the people in the conversation
-    name_list = []
+    message_dict = transcript_to_dictionary(chat_name, lines)
 
-    # For keeping track of how many media has gone through the conversation
-    media_tracker = 0
+    return pd.DataFrame(message_dict)
 
-    for line in original_lines:
-        # Remove the time stamp, try is needed for if there is no index 2
-        try:
-            if line[2] == '/':
-                line = line[20:]
-                message_tracker += 1
-        except:
-            line = line
 
-        # If the line is a beginning of a new message
-        if ':' in line and line.index(':') <= 25:
-            s = ''
+def transcript_to_dictionary(chat_name, lines):
 
-            # Filip (ne Gasparovic lol)
-            for i in line[:line.index(':')].split():
-                s += i.replace('(', '')[0]
+    message_dict = {
+        'timestamp': [],
+        'chat_name': [],
+        'sender': [],
+        'contents': []
+    }
 
-            # Save the name to the name list if it is not already there and there are not too many names
-            if f'{line[:line.index(':')]} - {s}\n' not in name_list and len(name_list) <= 12:
-                name_list.append(f'{line[:line.index(':')]} - {s}\n')
+    current_message = ['timestamp', 'chat_name', 'sender', 'contents']
 
-            s += line[line.index(':'):]
-            line = s
+    current_message[0] = lines[0][:17]
+    line = lines[0][20:]
+    current_message[1] = chat_name
+    current_message[2] = line[:line.find(':')]
+    line = line[line.find(':') + 2:]
+    current_message[3] = line
 
-        # Removes the media
-        if '<Media omitted>' in line:
-            line = line.replace('<Media omitted>', '<M>')
-            media_tracker += 1
+    lines.remove(lines[0])
 
-        modified_lines.append(line)
+    for line in lines:
+        if len(line) > 19 and line[2] == '/' and ':' in line[20:]:
+            message_dict['timestamp'].append(current_message[0])
+            message_dict['chat_name'].append(current_message[1])
+            message_dict['sender'].append(current_message[2])
+            message_dict['contents'].append(current_message[3])
 
-    # Add separation
-    name_list.append('\n')
+            current_message = ['timestamp', 'chat_name', 'sender', 'contents']
 
-    with open(output_filepath, 'w', encoding="utf8") as f:
-        f.writelines(name_list)
-        f.writelines(modified_lines)
-        f.write(f'\n{media_tracker} media files have passed trough this conversation')
-        f.write(f'\n{message_tracker} messages sent')
-        f.close()
+            current_message[0] = line[:17]
+            line = line[20:]
+
+            current_message[1] = chat_name
+
+            current_message[2] = line[:line.find(':')]
+            line = line[line.find(':') + 2:]
+
+            current_message[3] = line
+
+        else:
+            current_message[3] += line
+
+    message_dict['timestamp'].append(current_message[0])
+    message_dict['chat_name'].append(current_message[1])
+    message_dict['sender'].append(current_message[2])
+    message_dict['contents'].append(current_message[3])
+
+    return message_dict

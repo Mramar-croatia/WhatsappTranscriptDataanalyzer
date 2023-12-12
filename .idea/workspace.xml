@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc76c7cd-6004-43c2-b9be-523b5805980c" name="Changes" comment="Moved the main function to a functions.py script. Also started to work on the pandas implementation.">
+    <list default="true" id="fc76c7cd-6004-43c2-b9be-523b5805980c" name="Changes" comment="Prepared for working with pandas and matplotlib.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imrpoved_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/imrpoved_main.py" afterDir="false" />
@@ -147,7 +147,14 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1702326057397</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Prepared for working with pandas and matplotlib.">
+      <option name="closed" value="true" />
+      <created>1702331511670</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1702331511670</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -157,6 +164,7 @@
     <MESSAGE value="Added number of messages tracker" />
     <MESSAGE value="Added number of messages tracker 2" />
     <MESSAGE value="Moved the main function to a functions.py script. Also started to work on the pandas implementation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved the main function to a functions.py script. Also started to work on the pandas implementation." />
+    <MESSAGE value="Prepared for working with pandas and matplotlib." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepared for working with pandas and matplotlib." />
   </component>
 </project>
