@@ -1,3 +1,6 @@
+from tkinter import Tk
+from tkinter import filedialog as fd
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
@@ -108,6 +111,43 @@ def GenerateDateFrame(messages):
 
     dates = dates.set_index('date')
 
-    dates = dates.sort_values("number_of_messages", ascending=True)
-
     return dates
+
+# Takes a pandas dataframe, returns a pandas dataframe
+def count_user_messages(message_dataframe):
+    user_message_counts = message_dataframe['sender'].value_counts().reset_index()
+    user_message_counts.columns = ['sender', 'message_count']
+    user_message_count_df = pd.DataFrame(user_message_counts)
+
+    # Manually specify colors for each user
+    colors = ['skyblue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'gray']
+
+    plt.figure(figsize=(40, 20))
+    bars = plt.bar(user_message_count_df['sender'], user_message_count_df['message_count'],  color=colors[:len(user_message_count_df)])
+    plt.xlabel('User', fontsize=30, labelpad=40)  # Increase font size and set label padding for x-axis label
+    plt.ylabel('Number of Messages', fontsize=30, labelpad=50)  # Increase font size and set label padding for y-axis label
+    plt.title('Number of Messages Sent by Each User', fontsize=40, pad=50)  # Increase font size and set title padding
+
+    # Increase font size for x-axis and y-axis ticks
+    plt.xticks(fontsize=15)
+    plt.yticks(fontsize=15)
+
+    # Add value annotations on top of the bars
+    for bar in bars:
+        plt.text(bar.get_x() + bar.get_width() / 2 - 0.15, bar.get_height() + 50, str(int(bar.get_height())),
+            fontsize=20, color='black')
+
+    plt.savefig('user_message_count.png')
+
+    plt.show()
+
+
+
+# Returns the date data in pandas dataframe form
+def process_transcript_to_pandas():
+    root = Tk()
+    root.withdraw()
+
+    input_path = fd.askopenfilename()
+
+    return to_pandas(input_path)
