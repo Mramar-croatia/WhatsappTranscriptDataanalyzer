@@ -1,2 +1,2 @@
-# TimeStampRemover
- The program is used to remove timestamps from WhatsApp transcripts. The program uses a tkinter to enable the user to open a file for input and a file for output. Also provided is the file to serve as a sample to try the program.
+# WhatsappTranscriptDataanalyzer
+ The program is used to analyze the data from Whatsapp chat exports in the form of .txt files. It displays data about the change of the message amount through time, amount of messages sent by different users, average message length, amount of media files, most commonly used words, amount of messages sent, and other things related to analysis. All this data can be shown using pandas dataframes or using visual display through Matplotlib.
