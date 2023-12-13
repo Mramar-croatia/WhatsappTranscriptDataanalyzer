@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc76c7cd-6004-43c2-b9be-523b5805980c" name="Changes" comment="Prepared for working with pandas and matplotlib.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imrpoved_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/imrpoved_main.py" afterDir="false" />
-    </list>
+    <list default="true" id="fc76c7cd-6004-43c2-b9be-523b5805980c" name="Changes" comment="Made the functions create a pandas dataframe instead of just saving the data in a .txt file." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,7 +150,14 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1702331511670</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="Made the functions create a pandas dataframe instead of just saving the data in a .txt file.">
+      <option name="closed" value="true" />
+      <created>1702424864046</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1702424864046</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -165,6 +168,7 @@
     <MESSAGE value="Added number of messages tracker 2" />
     <MESSAGE value="Moved the main function to a functions.py script. Also started to work on the pandas implementation." />
     <MESSAGE value="Prepared for working with pandas and matplotlib." />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepared for working with pandas and matplotlib." />
+    <MESSAGE value="Made the functions create a pandas dataframe instead of just saving the data in a .txt file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the functions create a pandas dataframe instead of just saving the data in a .txt file." />
   </component>
 </project>
