@@ -4,14 +4,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# Returns the date data in pandas dataframe form
-def process_transcript_to_pandas():
-    root = Tk()
-    root.withdraw()
+from datetime import datetime
 
-    input_path = fd.askopenfilename()
-
-    return to_pandas(input_path)
 
 def to_pandas(input_filepath):
     # Loads the text into a list
@@ -27,6 +21,7 @@ def to_pandas(input_filepath):
     message_dict = transcript_to_dictionary(chat_name, lines)
 
     return pd.DataFrame(message_dict)
+
 
 def transcript_to_dictionary(chat_name, lines):
 
@@ -77,6 +72,47 @@ def transcript_to_dictionary(chat_name, lines):
 
     return message_dict
 
+
+def to_ymd_date (timestamp):
+    day = timestamp[0:2]
+    month = timestamp[3:5]
+    year = timestamp[6:10]
+    return f'{year}-{month}-{day}'
+
+def to_dmy_date (timestamp):
+    day = timestamp[8:10]
+    month = timestamp[5:7]
+    year = timestamp[:4]
+    return f'{day}-{month}-{year}'
+
+
+def GenerateDateFrame(messages):
+    # Zoome time
+
+    date_dict = {
+        'date': [],
+        'number_of_messages': []
+    }
+
+    starting_date = '12/11/2022'
+    earliest = to_ymd_date(messages.iloc[0]['timestamp'])
+
+    for i in pd.date_range(start='12/11/2022',end=to_ymd_date(messages.iloc[-1]['timestamp'])):
+        date_dict['date'].append(to_dmy_date(str(i)[:10]))
+        date_dict['number_of_messages'].append(0)
+
+    messages = messages.reset_index(drop=True)
+
+    for index, row in messages.iterrows():
+        if to_dmy_date(to_ymd_date(row['timestamp'])) in date_dict['date']:
+            date_dict['number_of_messages'][date_dict['date'].index(to_dmy_date(to_ymd_date(row['timestamp'])))] += 1  
+
+    dates = pd.DataFrame(date_dict)
+
+    dates = dates.set_index('date')
+
+    return dates
+
 # Takes a pandas dataframe, returns a pandas dataframe
 def count_user_messages(message_dataframe):
     user_message_counts = message_dataframe['sender'].value_counts().reset_index()
@@ -107,6 +143,11 @@ def count_user_messages(message_dataframe):
 
 
 
+# Returns the date data in pandas dataframe form
+def process_transcript_to_pandas():
+    root = Tk()
+    root.withdraw()
 
-messages_df = process_transcript_to_pandas()
-count_user_messages(messages_df)
+    input_path = fd.askopenfilename()
+
+    return to_pandas(input_path)
