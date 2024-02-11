@@ -22,7 +22,6 @@ def to_pandas(input_filepath):
 
     return pd.DataFrame(message_dict)
 
-
 def transcript_to_dictionary(chat_name, lines):
 
     message_dict = {
