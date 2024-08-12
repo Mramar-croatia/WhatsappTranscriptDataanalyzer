@@ -1,11 +1,15 @@
 from tkinter import Tk
 from tkinter import filedialog as fd
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 
-from functions import *
+from analysis_functions.date_functions import *
+from analysis_functions.user_functions import *
+from analysis_functions.word_functions import *
+from analysis_functions.load_functions import *
 
-messages_df = process_transcript_to_pandas()
+root = Tk()
+root.withdraw()
 
-count_user_messages(messages_df)
+input_path = fd.askopenfilename()
+# input_path = './WhatsAppChat.txt'
+
+messages_df = to_pandas(input_path)
