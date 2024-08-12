@@ -5,6 +5,8 @@ text_x_offset = 0.24
 text_y_offset = 2
 rotation = -80
 
+min_media = 50
+# min_media = int(input('Minimal media treshold: '))
 
 def user_count_media(messages):
 
@@ -24,7 +26,7 @@ def user_count_media(messages):
     user_media_counts = messages['sender'].value_counts().reset_index()
     user_media_counts.columns = ['sender', 'message_count']
     
-    user_media_counts = user_media_counts[user_media_counts['message_count'] >= int(input('Minimal media treshold: '))]
+    user_media_counts = user_media_counts[user_media_counts['message_count'] >= min_media]
     
     user_media_df = pd.DataFrame(user_media_counts)
     

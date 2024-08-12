@@ -5,12 +5,15 @@ text_x_offset = 0.35
 text_y_offset = 50
 rotation = -80
 
+min_message = 500
+# min_message = int(input('Minimal message treshold: '))
+
 def count_user_messages(message_dataframe):
     
     user_message_counts = message_dataframe['sender'].value_counts().reset_index()
     user_message_counts.columns = ['sender', 'message_count']
     
-    user_message_counts = user_message_counts[user_message_counts['message_count'] >= int(input('Minimal message treshold: '))]
+    user_message_counts = user_message_counts[user_message_counts['message_count'] >= min_message]
     
     user_message_count_df = pd.DataFrame(user_message_counts)
     
