@@ -1,3 +1,4 @@
+from email import message
 import pandas as pd
 
 # Takes a string, returns a pandas dataframe
@@ -9,9 +10,6 @@ def to_pandas(input_filepath):
 
     if ':' not in lines[0][20:]:
         lines.remove(lines[0])
-
-    # chat_name = input_filepath[input_filepath.rfind('WhatsApp Chat'):]
-    chat_name = input('Name of the chat: ')
 
     return pd.DataFrame(transcript_to_dictionary(lines))
 
@@ -53,3 +51,21 @@ def transcript_to_dictionary(lines):
         message_dict['contents'].append(current_message[2])
 
     return message_dict
+
+def remove_media(message_dataframe):
+    for i in range(len(message_dataframe['contents'])):
+        if '<Media omitted>' in message_dataframe['contents'][i] or '<media omitted>' in message_dataframe['contents'][i]:
+            message_dataframe['contents'][i] = ''
+            
+    return message_dataframe
+
+def write_general_data(message_dataframe):
+    with open('./RESULTS/general_data.txt', 'w') as f:
+        f.write('Number of messages: ' + str(len(message_dataframe)) + '\n')
+        f.write('Number of senders: ' + str(len(message_dataframe['sender'].unique())) + '\n')
+        f.write('Number of words: ' + str(message_dataframe['contents'].apply(lambda x: len(x.split())).sum()) + '\n')
+        f.write('Number of characters: ' + str(message_dataframe['contents'].apply(lambda x: len(x)).sum()) + '\n')
+        f.write('Average message length: ' + str(message_dataframe['contents'].apply(lambda x: len(x)).mean()) + '\n')
+        f.write('Average words per message: ' + str(message_dataframe['contents'].apply(lambda x: len(x.split())).mean()) + '\n')
+        f.write('Average messages per sender: ' + str(message_dataframe['sender'].value_counts().mean()) + '\n')
+        f.close()

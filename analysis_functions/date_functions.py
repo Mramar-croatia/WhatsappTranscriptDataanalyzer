@@ -46,8 +46,10 @@ def plot_date_dataframe(df):
     plt.figure(figsize=(20,10))
     plt.plot(df.index, df['number_of_messages'])
     plt.xticks(rotation=-80)
+    plt.title('Date distribution of messages')
     plt.savefig('./RESULTS/date_distribution.png', bbox_inches='tight')
-    plt.show()
+    
+    # plt.show()
     
 def process_date_distribution(message_dataframe):
     dates = GenerateDateFrame(message_dataframe)

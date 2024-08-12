@@ -13,6 +13,8 @@ def count_user_messages(message_dataframe):
     user_message_counts = user_message_counts[user_message_counts['message_count'] >= int(input('Minimal message treshold: '))]
     
     user_message_count_df = pd.DataFrame(user_message_counts)
+    
+    return user_message_count_df
 
     
 def plot_user_message_count(user_message_count_df):
@@ -21,9 +23,9 @@ def plot_user_message_count(user_message_count_df):
 
     plt.figure(figsize=(40, 20))
     bars = plt.bar(user_message_count_df['sender'], user_message_count_df['message_count'],  color=colors[:len(user_message_count_df)])
-    plt.xlabel('Osoba', fontsize=30, labelpad=40)  # Increase font size and set label padding for x-axis label
-    plt.ylabel('Broj poruka', fontsize=30, labelpad=50)  # Increase font size and set label padding for y-axis label
-    plt.title('Broj poruka svake osobe', fontsize=40, pad=50)  # Increase font size and set title padding
+    plt.xlabel('Sender', fontsize=30, labelpad=40)  # Increase font size and set label padding for x-axis label
+    plt.ylabel('Number of messages', fontsize=30, labelpad=50)  # Increase font size and set label padding for y-axis label
+    plt.title('Number of messages per person', fontsize=40, pad=50)  # Increase font size and set title padding
 
     # Increase font size for x-axis and y-axis ticks
     plt.xticks(fontsize=15, rotation=rotation)
@@ -37,7 +39,7 @@ def plot_user_message_count(user_message_count_df):
     # Save the plot as an image file
     plt.savefig('./RESULTS/user_count.png', bbox_inches='tight')
     
-    plt.show()
+    # plt.show()
     
 def process_user_message_count(message_dataframe):
     user_message_count_df = count_user_messages(message_dataframe)
