@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 text_x_offset = 0.15
 text_y_offset = 2
-rotation = -90
+rotation = -80
 
 
 def user_count_media(messages):
@@ -24,7 +24,7 @@ def user_count_media(messages):
     user_media_counts = messages['sender'].value_counts().reset_index()
     user_media_counts.columns = ['sender', 'message_count']
     
-    user_media_counts = user_media_counts[user_media_counts['message_count'] >= int(input('Minimal message treshold: '))]
+    user_media_counts = user_media_counts[user_media_counts['message_count'] >= int(input('Minimal media treshold: '))]
     
     user_media_df = pd.DataFrame(user_media_counts)
     

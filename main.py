@@ -6,6 +6,7 @@ from analysis_functions.user_functions import *
 from analysis_functions.word_functions import *
 from analysis_functions.load_functions import *
 from analysis_functions.media_functions import *
+from analysis_functions.hour_functions import *
 
 if __name__ == '__main__':
     root = Tk()
@@ -21,6 +22,4 @@ if __name__ == '__main__':
     process_user_media_count(messages_df)
     process_date_distribution(messages_df)
     write_general_data(messages_df)
-    
-    
-
+    process_hour_count(messages_df)

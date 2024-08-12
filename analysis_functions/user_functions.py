@@ -3,7 +3,7 @@ import pandas as pd
 
 text_x_offset = 0.35
 text_y_offset = 50
-rotation = -90
+rotation = -80
 
 def count_user_messages(message_dataframe):
     
