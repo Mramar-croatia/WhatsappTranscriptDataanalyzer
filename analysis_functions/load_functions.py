@@ -1,4 +1,3 @@
-from email import message
 import pandas as pd
 
 # Takes a string, returns a pandas dataframe

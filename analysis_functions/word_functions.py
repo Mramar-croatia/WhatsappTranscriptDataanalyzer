@@ -16,8 +16,14 @@ def count_common_words(messages):
     word_counts = pd.Series(words).value_counts().reset_index()
     word_counts.columns = ['word', 'count']
 
+    # Remove unwanted words
+    unwanted_words = ['<media', 'omitted>']
+    word_counts = word_counts[~word_counts['word'].isin(unwanted_words)]
+
+    # Set 'word' as the index
     word_counts.set_index('word', inplace=True)
 
+    # Reset index to keep 'word' as a column and not index
     word_counts.reset_index()
 
     # Display the top 20 most common words

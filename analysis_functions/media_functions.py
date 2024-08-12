@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-text_x_offset = 0.15
+text_x_offset = 0.24
 text_y_offset = 2
 rotation = -80
 
