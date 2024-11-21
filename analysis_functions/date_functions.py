@@ -43,12 +43,18 @@ def GenerateDateFrame(messages):
     return dates
 
 def plot_date_dataframe(df):
-    plt.figure(figsize=(20,10))
+    plt.figure(figsize=(20, 10))
     plt.plot(df.index, df['number_of_messages'])
-    plt.xticks(rotation=-80)
+    
+    # Set the x-ticks to show every 10th tick
+    num_ticks = len(df.index)
+    if num_ticks > 10:  # Check if there are enough ticks to show
+        plt.xticks(ticks=range(0, num_ticks, 14), labels=map(lambda x: str(x).replace('-', '.'), df.index[::14]), rotation=-80)
+    else:
+        plt.xticks(rotation=-80)  # Default behavior if there are fewer than 10 ticks
+    
     plt.title('Date distribution of messages')
     plt.savefig('./RESULTS/date_distribution.png', bbox_inches='tight')
-    
     # plt.show()
     
 def process_date_distribution(message_dataframe):

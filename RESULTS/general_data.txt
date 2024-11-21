@@ -1,0 +1,7 @@
+Number of messages: 99636
+Number of senders: 124
+Number of words: 382154
+Number of characters: 1932857
+Average message length: 19.399183026215425
+Average words per message: 3.8355012244570235
+Average messages per sender: 803.516129032258

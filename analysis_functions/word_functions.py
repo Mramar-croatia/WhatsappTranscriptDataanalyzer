@@ -27,7 +27,7 @@ def count_common_words(messages):
     word_counts.reset_index()
 
     # Display the top 20 most common words
-    top_words = word_counts.head(20)
+    top_words = word_counts.head(60)
     
     return top_words
 

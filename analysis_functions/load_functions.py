@@ -23,7 +23,7 @@ def transcript_to_dictionary(lines):
     current_message = ['timestamp', 'sender', 'contents']
 
     for line in lines:
-        if len(line) >= 19 and line[18] == '-':
+        if len(line) >= 19 and line[17:20] == ' - ':
             # take the timestamp
             current_message[0] = line[0:17]
         

@@ -5,7 +5,7 @@ text_x_offset = 0.35
 text_y_offset = 50
 rotation = -80
 
-min_message = 500
+min_message = 0
 # min_message = int(input('Minimal message treshold: '))
 
 def count_user_messages(message_dataframe):
