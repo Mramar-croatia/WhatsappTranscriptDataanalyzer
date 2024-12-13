@@ -1,13 +1,21 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import string
 
-text_x_offset = 0.24
-text_y_offset = 50
-rotation = 0
+text_x_offset = 0.3
+text_y_offset = 5
+rotation = -70
+word_count_font_size = 15
+min_length = 4
+number_of_words = 60
 
 def count_common_words(messages):
     # Assuming you have a DataFrame named 'messages'
     all_messages = ' '.join(messages['contents'].astype(str).str.lower())
+    
+    # Remove punctuation from the text
+    all_messages = all_messages.translate(str.maketrans('', '', string.punctuation))
+    all_messages = all_messages.replace('\n', ' ').replace(',', ' ').lower()
 
     # Split the text into words
     words = all_messages.split()
@@ -17,17 +25,20 @@ def count_common_words(messages):
     word_counts.columns = ['word', 'count']
 
     # Remove unwanted words
-    unwanted_words = ['<media', 'omitted>']
+    unwanted_words = ['media', 'omitted', 'edited', 'this', 'message']
     word_counts = word_counts[~word_counts['word'].isin(unwanted_words)]
 
     # Set 'word' as the index
     word_counts.set_index('word', inplace=True)
+    
+    # Remove words shorter than 4 letters
+    word_counts = word_counts[word_counts.index.str.len() >= min_length]
 
     # Reset index to keep 'word' as a column and not index
     word_counts.reset_index()
 
     # Display the top 20 most common words
-    top_words = word_counts.head(60)
+    top_words = word_counts.head(number_of_words)
     
     return top_words
 
@@ -48,7 +59,7 @@ def plot_common_words(top_words):
     # Add value annotations on top of the bars
     for bar in bars:
         plt.text(bar.get_x() + bar.get_width() / 2 - text_x_offset, bar.get_height() + text_y_offset, str(int(bar.get_height())),
-                fontsize=20, color='black')
+                fontsize=word_count_font_size, color='black')
         
     plt.savefig('./RESULTS/word_distribution.png', bbox_inches='tight')
 

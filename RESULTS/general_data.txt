@@ -1,7 +1,15 @@
-Number of messages: 99636
-Number of senders: 124
-Number of words: 382154
-Number of characters: 1932857
-Average message length: 19.399183026215425
-Average words per message: 3.8355012244570235
-Average messages per sender: 803.516129032258
+Number of messages: 10098
+Number of senders: 2
+Number of words: 58210
+Number of characters: 299784
+Average message length: 29.68746286393345
+Average words per message: 5.7645078233313525
+Average messages per sender: 5049.0
+
+Average message length per sender:
+Lobel Marunić: 25.74 characters
+Rita: 34.01 characters
+
+Total characters sent per sender:
+Lobel Marunić: 135864 characters
+Rita: 163920 characters

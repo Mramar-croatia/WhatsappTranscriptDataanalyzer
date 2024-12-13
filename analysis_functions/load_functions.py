@@ -59,7 +59,7 @@ def remove_media(message_dataframe):
     return message_dataframe
 
 def write_general_data(message_dataframe):
-    with open('./RESULTS/general_data.txt', 'w') as f:
+    with open('./RESULTS/general_data.txt', 'w', encoding='utf-8') as f:
         f.write('Number of messages: ' + str(len(message_dataframe)) + '\n')
         f.write('Number of senders: ' + str(len(message_dataframe['sender'].unique())) + '\n')
         f.write('Number of words: ' + str(message_dataframe['contents'].apply(lambda x: len(x.split())).sum()) + '\n')
@@ -67,4 +67,17 @@ def write_general_data(message_dataframe):
         f.write('Average message length: ' + str(message_dataframe['contents'].apply(lambda x: len(x)).mean()) + '\n')
         f.write('Average words per message: ' + str(message_dataframe['contents'].apply(lambda x: len(x.split())).mean()) + '\n')
         f.write('Average messages per sender: ' + str(message_dataframe['sender'].value_counts().mean()) + '\n')
+            
+        # Calculate and write average message length for each sender
+        sender_avg_lengths = message_dataframe.groupby('sender')['contents'].apply(lambda x: x.str.len().mean())
+        f.write('\nAverage message length per sender:\n')
+        for sender, avg_length in sender_avg_lengths.items():
+            f.write(f'{sender}: {avg_length:.2f} characters\n')
+            
+        # Calculate and write total characters sent by each sender
+        sender_total_chars = message_dataframe.groupby('sender')['contents'].apply(lambda x: x.str.len().sum())
+        f.write('\nTotal characters sent per sender:\n')
+        for sender, total_chars in sender_total_chars.items():
+            f.write(f'{sender}: {total_chars} characters\n')
+            
         f.close()

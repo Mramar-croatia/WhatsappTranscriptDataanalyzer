@@ -19,8 +19,7 @@ def count_user_messages(message_dataframe):
     
     return user_message_count_df
 
-    
-def plot_user_message_count(user_message_count_df):
+def bar_plot_user_message_count(user_message_count_df):
     # Manually specify colors for each user
     colors = ['skyblue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'gray']
 
@@ -44,6 +43,31 @@ def plot_user_message_count(user_message_count_df):
     
     # plt.show()
     
+def pie_plot_user_message_count(user_message_count_df):
+    # Manually specify colors for each user
+    colors = ['skyblue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'gray']
+
+    # Pie chart
+    plt.figure(figsize=(10, 10))  # Adjust the figure size for the pie chart
+
+    # Plot the pie chart
+    plt.pie(user_message_count_df['message_count'], 
+            labels=user_message_count_df['sender'], 
+            colors=colors[:len(user_message_count_df)], 
+            autopct='%1.1f%%',  # Display percentage on the pie chart
+            startangle=90,  # Start the pie chart from a fixed angle
+            wedgeprops={'edgecolor': 'black', 'linewidth': 1.5})  # Add edge color to wedges for better visual separation
+
+    # Title of the pie chart
+    plt.title('Number of messages per person', fontsize=20)
+
+    # Save the plot as an image file
+    plt.savefig('./RESULTS/user_count.png', bbox_inches='tight')
+    
 def process_user_message_count(message_dataframe):
     user_message_count_df = count_user_messages(message_dataframe)
-    plot_user_message_count(user_message_count_df)
+    
+    if len(user_message_count_df) > 10:
+        bar_plot_user_message_count(user_message_count_df)
+    else:
+        pie_plot_user_message_count(user_message_count_df)

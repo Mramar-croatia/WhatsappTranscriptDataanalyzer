@@ -1,8 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-text_x_offset = 0.28
-text_y_offset = 50
+text_x_offset = 0.20
+text_y_offset = 5
 rotation = 0
 
 def count_hours(messages):

@@ -32,7 +32,7 @@ def user_count_media(messages):
     
     return user_media_df
 
-def plot_user_media_count(user_media_df):
+def bar_plot_user_media_count(user_media_df):
     # Manually specify colors for each user
     colors = ['skyblue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'gray']
 
@@ -53,7 +53,32 @@ def plot_user_media_count(user_media_df):
         
     plt.savefig('./RESULTS/user_media_count.png', bbox_inches='tight')
 
-    # plt.show()
+def pie_plot_user_media_count(user_media_count_df):
+    # Manually specify colors for each user
+    colors = ['skyblue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'gray']
+
+    # Pie chart
+    plt.figure(figsize=(10, 10))  # Adjust the figure size for the pie chart
+
+    # Plot the pie chart
+    plt.pie(user_media_count_df['message_count'], 
+            labels=user_media_count_df['sender'], 
+            colors=colors[:len(user_media_count_df)], 
+            autopct='%1.1f%%',  # Display percentage on the pie chart
+            startangle=90,  # Start the pie chart from a fixed angle
+            wedgeprops={'edgecolor': 'black', 'linewidth': 1.5})  # Add edge color to wedges for better visual separation
+
+    # Title of the pie chart
+    plt.title('Number of messages with media attachemnts per person', fontsize=20)
+
+    # Save the plot as an image file
+    plt.savefig('./RESULTS/user_media_count.png', bbox_inches='tight')
     
 def process_user_media_count(media_dataframe):
-    plot_user_media_count(user_count_media(media_dataframe))
+    
+    user_media_count_df = user_count_media(media_dataframe)
+    
+    if len(user_media_count_df) < 10:
+        pie_plot_user_media_count(user_media_count_df)
+    else:
+        bar_plot_user_media_count(user_media_count_df)
