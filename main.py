@@ -7,6 +7,7 @@ from analysis_functions.word_functions import *
 from analysis_functions.load_functions import *
 from analysis_functions.media_functions import *
 from analysis_functions.hour_functions import *
+from analysis_functions.emoji_functions import *
 
 if __name__ == '__main__':
     root = Tk()
@@ -17,9 +18,11 @@ if __name__ == '__main__':
 
     messages_df = to_pandas(input_path)
     
+    process_common_emojis(messages_df)
     process_common_words(messages_df)
     process_user_message_count(messages_df)
     process_user_media_count(messages_df)
     process_date_distribution(messages_df)
     write_general_data(messages_df)
     process_hour_count(messages_df)
+    
