@@ -1,15 +1,15 @@
-Number of messages: 10098
+Number of messages: 50376
 Number of senders: 2
-Number of words: 58210
-Number of characters: 299784
-Average message length: 29.68746286393345
-Average words per message: 5.7645078233313525
-Average messages per sender: 5049.0
+Number of words: 300314
+Number of characters: 1538286
+Average message length: 30.536088613625537
+Average words per message: 5.961449896776243
+Average messages per sender: 25188.0
 
 Average message length per sender:
-Lobel Marunić: 25.74 characters
-Rita: 34.01 characters
+Lobel Marunić: 26.85 characters
+Rita (B Razred, President, Vijeće, Lijepo Krilo ZZ-a, Kronike, PBSC, (TTC), KKK, Budući Folklor Dancing Partner, SMP, ♥️, etc.): 34.63 characters
 
 Total characters sent per sender:
-Lobel Marunić: 135864 characters
-Rita: 163920 characters
+Lobel Marunić: 712319 characters
+Rita (B Razred, President, Vijeće, Lijepo Krilo ZZ-a, Kronike, PBSC, (TTC), KKK, Budući Folklor Dancing Partner, SMP, ♥️, etc.): 825967 characters

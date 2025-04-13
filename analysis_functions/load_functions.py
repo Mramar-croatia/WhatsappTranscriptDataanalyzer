@@ -71,7 +71,8 @@ def write_general_data(message_dataframe):
         # Calculate and write average message length for each sender
         sender_avg_lengths = message_dataframe.groupby('sender')['contents'].apply(lambda x: x.str.len().mean())
         f.write('\nAverage message length per sender:\n')
-        for sender, avg_length in sender_avg_lengths.items():
+        senders = [(sender, avg_length) for sender, avg_length in sender_avg_lengths.items()]
+        for sender, avg_length in sorted(senders, key=lambda x: x[1]):
             f.write(f'{sender}: {avg_length:.2f} characters\n')
             
         # Calculate and write total characters sent by each sender

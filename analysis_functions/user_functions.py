@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-text_x_offset = 0.35
-text_y_offset = 50
+text_x_offset = 0.15
+text_y_offset = 2
 rotation = -80
+
+font_size_pie_plot = 15
 
 min_message = 0
 # min_message = int(input('Minimal message treshold: '))
@@ -49,6 +51,8 @@ def pie_plot_user_message_count(user_message_count_df):
 
     # Pie chart
     plt.figure(figsize=(10, 10))  # Adjust the figure size for the pie chart
+    
+    user_message_count_df['sender'] = user_message_count_df['sender'].replace('Lobel Marunić', 'Lobel')
 
     # Plot the pie chart
     plt.pie(user_message_count_df['message_count'], 
@@ -56,6 +60,7 @@ def pie_plot_user_message_count(user_message_count_df):
             colors=colors[:len(user_message_count_df)], 
             autopct='%1.1f%%',  # Display percentage on the pie chart
             startangle=90,  # Start the pie chart from a fixed angle
+            textprops={'fontsize': font_size_pie_plot},  # Adjust font size of labels and percentage
             wedgeprops={'edgecolor': 'black', 'linewidth': 1.5})  # Add edge color to wedges for better visual separation
 
     # Title of the pie chart

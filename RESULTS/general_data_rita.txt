@@ -1,0 +1,15 @@
+Number of messages: 20369
+Number of senders: 2
+Number of words: 126315
+Number of characters: 652079
+Average message length: 32.01330453139575
+Average words per message: 6.201335362560754
+Average messages per sender: 10184.5
+
+Average message length per sender:
+Lobel Marunić: 28.82 characters
+Rita (B Razred, President, Vijeće Lijep Krilo ZZa, Kronike, PBSC, TTC): 35.51 characters
+
+Total characters sent per sender:
+Lobel Marunić: 306691 characters
+Rita (B Razred, President, Vijeće Lijep Krilo ZZa, Kronike, PBSC, TTC): 345388 characters

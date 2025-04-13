@@ -5,6 +5,8 @@ text_x_offset = 0.24
 text_y_offset = 2
 rotation = -80
 
+font_size_pie_plot = 15
+
 min_media = 50
 # min_media = int(input('Minimal media treshold: '))
 
@@ -40,7 +42,7 @@ def bar_plot_user_media_count(user_media_df):
     bars = plt.bar(user_media_df['sender'], user_media_df['message_count'],  color=colors[:len(user_media_df)])
     plt.xlabel('Sender', fontsize=30, labelpad=40)  # Increase font size and set label padding for x-axis label
     plt.ylabel('Number of messages', fontsize=30, labelpad=50)  # Increase font size and set label padding for y-axis label
-    plt.title('Number of messages with media attachemnts per person', fontsize=40, pad=50)  # Increase font size and set title padding
+    plt.title('Number of messages with media attachments per person', fontsize=40, pad=50)  # Increase font size and set title padding
 
     # Increase font size for x-axis and y-axis ticks
     plt.xticks(fontsize=15, rotation=rotation)
@@ -59,6 +61,8 @@ def pie_plot_user_media_count(user_media_count_df):
 
     # Pie chart
     plt.figure(figsize=(10, 10))  # Adjust the figure size for the pie chart
+    
+    user_media_count_df['sender'] = user_media_count_df['sender'].replace('Lobel Marunić', 'Lobel')
 
     # Plot the pie chart
     plt.pie(user_media_count_df['message_count'], 
@@ -66,10 +70,12 @@ def pie_plot_user_media_count(user_media_count_df):
             colors=colors[:len(user_media_count_df)], 
             autopct='%1.1f%%',  # Display percentage on the pie chart
             startangle=90,  # Start the pie chart from a fixed angle
-            wedgeprops={'edgecolor': 'black', 'linewidth': 1.5})  # Add edge color to wedges for better visual separation
+            wedgeprops={'edgecolor': 'black', 'linewidth': 1.5},  # Add edge color to wedges for better visual separation
+            textprops={'fontsize': font_size_pie_plot},  # Adjust font size of labels and percentage
+            labeldistance=1.1)  # Adjust label distance from the center
 
     # Title of the pie chart
-    plt.title('Number of messages with media attachemnts per person', fontsize=20)
+    plt.title('Number of messages with media attachments per person', fontsize=20)
 
     # Save the plot as an image file
     plt.savefig('./RESULTS/user_media_count.png', bbox_inches='tight')

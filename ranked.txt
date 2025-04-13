@@ -1,0 +1,14 @@
+Name	Number
+Petar	22129
+Vito	15629
+Rita	10098
+Sheena	5479
+Lara	5305
+Maja Lea	3387
+Ema M	3283
+Fran	3062
+Lucija	2309
+Helena Furčić	1976
+Lana Srića	1745
+Helena Livaić	1174
+Gabi	1027

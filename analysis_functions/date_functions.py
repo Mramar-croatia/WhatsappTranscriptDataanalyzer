@@ -60,3 +60,6 @@ def plot_date_dataframe(df):
 def process_date_distribution(message_dataframe):
     dates = GenerateDateFrame(message_dataframe)
     plot_date_dataframe(dates)
+    sorted_dates = dates.sort_values(by='number_of_messages', ascending=False)
+    with open('./RESULTS/date_distribution.txt', 'w') as f:
+        f.write(sorted_dates.to_string())

@@ -19,6 +19,7 @@ def count_common_words(messages):
 
     # Split the text into words
     words = all_messages.split()
+    words.extend(['grupe', 'grupa', 'grupi', 'grupu']) # Dodaj svoje "grupe"
 
     # Create a DataFrame with word counts
     word_counts = pd.Series(words).value_counts().reset_index()
